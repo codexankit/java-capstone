@@ -1,141 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Standard Chartered – Demo</title>
-  <style>
-    /* ====== Base ====== */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#16203a}
-    a{color:inherit}
+    
+    <title>Standard Chartered</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+ 
+        /* Header */
+        .header {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+ 
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+ 
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+ 
+        .home-icon {
+            font-size: 20px;
+            color: #666;
+        }
+ 
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+ 
+        .nav-links li {
+            color: #666;
+            font-size: 14px;
+            cursor: pointer;
+        }
+ 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+ 
+        .search-icon {
+            background-color: #f0f0f0;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #666;
+        }
+ 
+        .login-btn {
+            background-color: #00a651;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 2px;
+            font-size: 10px;
+            cursor: pointer;
+        }
+ 
+        .standard-chartered-logo {
+           display: flex;
+           align-items: center;
+ 
+        }
+        .standard-chartered-logo img {
+           height: 30px;
+   
+           width:auto;
+           max-width:150px;
+           
+           
+        }
+ 
+ 
+        /* Main Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #4a90e2 0%, #7bb3f0 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+ 
+        .hero-title {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+ 
+        /* Cards Container */
+        .cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
 
-    /* ====== Top bar ====== */
-    .topbar{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:12px 18px;border-bottom:1px solid #e8eef5;background:#fff
-    }
-    .logo{height:28px;width:auto}
-    .location{font-size:14px;color:#51617a}
-    .location strong{color:#1a8f5a}
+            background: url("oceanBackground.jpg") no-repeat center center;
+            background-size: cover;
+            border-radius: 8px;
+        }
+ 
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+ 
+        .card:hover {
+            transform: translateY(-5px);
+        }
+ 
+        .card-image {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+        }
+ 
+        .card-content {
+            padding: 20px;
+        }
+ 
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+ 
+        .card-description {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+ 
+        .card-image{
+            height: 150px;
+            overflow: hidden;
+        }
 
-    /* ====== Layout grid ====== */
-    .shell{
-      width:min(1200px,92vw);margin:24px auto;
-      display:grid;grid-template-columns:1fr 520px 1fr;gap:18px;align-items:stretch
-    }
-
-    /* ====== Cards ====== */
-    .cards{display:grid;gap:18px}
-    .card{position:relative;overflow:hidden;border-radius:10px;min-height:160px;
-          background:#f3f7fb;box-shadow:0 4px 16px rgba(0,0,0,.06)}
-    .card img{width:100%;height:100%;object-fit:cover;display:block}
-    .card__content{
-      position:absolute;left:0;right:0;bottom:0;padding:14px 14px 16px;color:#fff;
-      background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.55) 100%)
-    }
-    .card__content h3{margin:0 0 6px;font-size:16px;line-height:1.35;font-weight:700}
-    .card__content p{margin:0;font-size:13px;opacity:.95}
-
-    /* ====== Hero ====== */
-    .hero{
-      position:relative;border-radius:12px;overflow:hidden;min-height:720px;
-      background:linear-gradient(180deg,#0b4c70 0%,#0b6c9c 35%,#0a8fb2 70%,#0aa3c2 100%);
-      background-image:
-        linear-gradient(180deg,rgba(0,0,0,.10),rgba(255,255,255,.06)),
-        radial-gradient(1200px 60% at 50% 40%,rgba(255,255,255,.16),rgba(255,255,255,0));
-      background-blend-mode:overlay,normal
-    }
-    .hero__overlay{
-      position:absolute;inset:0;display:grid;place-items:center;text-align:center;
-      padding:32px;color:#fff
-    }
-    .hero h1{font-size:clamp(28px,4.2vw,54px);font-weight:800;letter-spacing:.4px;line-height:1.15;margin:0}
-    .hero h1 span{font-weight:500;opacity:.95}
-    .hero__cta{margin-top:22px}
-    .btn{display:inline-block;padding:10px 18px;border-radius:6px;background:#8ad6a9;color:#083b4d;font-weight:700;text-decoration:none}
-    .hero__logo{position:absolute;bottom:16px;right:16px;height:42px;opacity:.95}
-
-    /* ====== Footer ====== */
-    .footer{display:flex;justify-content:center;padding:26px 12px 46px}
-    .footer img{height:40px;width:auto;opacity:.9}
-
-    /* ====== Responsive ====== */
-    @media (max-width:1060px){
-      .shell{grid-template-columns:1fr}
-      .hero{min-height:420px}
-      .cards.col-right{order:3}
-    }
-  </style>
+        .card-image img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+ 
+    </style>
 </head>
 <body>
-  <!-- Top bar -->
-  <header class="topbar">
-    <img src="scb%20logo.png" alt="Standard Chartered" class="logo">
-    <div class="location">You're in <strong>India</strong></div>
-  </header>
-
-  <!-- Main grid -->
-  <main class="shell">
-    <!-- Left column -->
-    <section class="cards col-left">
-      <article class="card">
-        <img src="pic1.png" alt="Story 1">
-        <div class="card__content">
-          <h3>Combating the illegal wildlife trade</h3>
-          <p>Our people and partners are taking action.</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="home-icon">🏠</div>
+                <ul class="nav-links">
+                    <li>You're in India</li>
+                    <li>Our Products</li>
+                    <li>Promotions</li>
+                    <li>Services</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="search-icon">🔍</div>
+                <button class="login-btn">🔒 LOGIN</button>
+                <div class="standard-chartered-logo">
+                      <img src="scb logo.png" alt ="Standard Chartered" />
+                </div>
+            </div>
         </div>
-      </article>
-
-      <article class="card">
-        <img src="pic2.png" alt="Story 2">
-        <div class="card__content">
-          <h3>Thrills like you never felt</h3>
-          <p>Explore experiences with us.</p>
+    </header>
+ 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">Welcome to Standard Chartered</h1>
+       
+        <!-- Cards -->
+        <div class="cards-container">
+            <div class="card card1">
+                <div class="card-image">
+                    <img src="pic1.png" alt="Wildlife">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Combating the illegal wildlife trade</h3>
+                    <p class="card-description">See how we work with partners to fight money laundering and the illegal wildlife trade.</p>
+                </div>
+            </div>
+ 
+            <div class="card card2">
+                <div class="card-image">
+                    <img src="pic2.png" alt="Invest">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Invest like you never left India</h3>
+                    <p class="card-description">Invest on-the-go with NRI Banking.</p>
+                </div>
+            </div>
+ 
+            <div class="card card3">
+                <div class="card-image">
+                    <img src="pic3.png" alt="Explore the world">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Explore the world like a local #PayLikeALocal</h3>
+                    <p class="card-description">Load up to 10 currencies on the Multi-Currency Forex card. Apply now.</p>
+                </div>
+            </div>
+ 
+            <div class="card card4">
+                <div class="card-image">
+                    <img src="pic4.png" alt="SC edge app">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">SC Edge app - Exclusive for salary accounts</h3>
+                    <p class="card-description">One app for travel, dining, recharges, bill pay & managing expenses. Know more.</p>
+                </div>
+            </div>
+ 
+            <div class="card card5">
+                <div class="card-image">
+                    <img src="pic5.png" alt="Wildlife">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Get 5% cashback at supermarket</h3>
+                    <p class="card-description">With Manhattan Platinum credit card.</p>
+                </div>
+            </div>
         </div>
-      </article>
-
-      <article class="card">
-        <img src="pic3.png" alt="Story 3">
-        <div class="card__content">
-          <h3>Explore the world with a Wealth Account</h3>
-          <p>Banking made simple.</p>
-        </div>
-      </article>
     </section>
-
-    <!-- Center hero -->
-    <section class="hero">
-      <div class="hero__overlay">
-        <h1><span>Welcome to</span><br>Standard Chartered</h1>
-        <div class="hero__cta"><a href="#" class="btn">Apply now</a></div>
-        <img src="scb%20logo.png" alt="SC logo" class="hero__logo">
-      </div>
-    </section>
-
-    <!-- Right column -->
-    <section class="cards col-right">
-      <article class="card">
-        <img src="pic4.png" alt="Story 4">
-        <div class="card__content">
-          <h3>SC Edge Pro – Exclusive</h3>
-          <p>Digital banking reimagined.</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="pic5.png" alt="Story 5">
-        <div class="card__content">
-          <h3>Get 5% Cashback at partners</h3>
-          <p>With select Premium cards.</p>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <img src="axess%20academy%20logo.png" alt="axess academy">
-  </footer>
 </body>
 </html>
