@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
     <title>Standard Chartered</title>
     <style>
+        /* Reset default browser margin & padding */
         * {
             margin: 0;
             padding: 0;
@@ -12,29 +12,31 @@
  
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #f5f5f5; /* Light gray background */
         }
  
-        /* Header */
+        /* ---------------- HEADER ---------------- */
         .header {
             background-color: white;
             padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* subtle bottom shadow */
         }
  
+        /* container inside header */
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
+            display: flex;                /* flexbox layout */
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-between; /* space between left & right */
             padding: 0 20px;
         }
  
+        /* left section of header */
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 40px; /* spacing between home icon and nav links */
         }
  
         .home-icon {
@@ -42,10 +44,11 @@
             color: #666;
         }
  
+        /* navigation links list */
         .nav-links {
             display: flex;
             gap: 30px;
-            list-style: none;
+            list-style: none; /* remove bullet points */
         }
  
         .nav-links li {
@@ -54,10 +57,11 @@
             cursor: pointer;
         }
  
+        /* right side of header */
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 20px; /* spacing between search, login, logo */
         }
  
         .search-icon {
@@ -68,8 +72,9 @@
             color: #666;
         }
  
+        /* login button */
         .login-btn {
-            background-color: #00a651;
+            background-color: #00a651; /* green */
             color: white;
             padding: 8px 12px;
             border: none;
@@ -78,29 +83,26 @@
             cursor: pointer;
         }
  
+        /* logo styles */
         .standard-chartered-logo {
            display: flex;
            align-items: center;
- 
         }
         .standard-chartered-logo img {
            height: 30px;
-   
-           width:auto;
-           max-width:150px;
-           
-           
+           width: auto;
+           max-width: 150px;
         }
  
- 
-        /* Main Hero Section */
+        /* ---------------- HERO SECTION ---------------- */
         .hero-section {
-            background: linear-gradient(135deg, #4a90e2 0%, #7bb3f0 100%);
+            background: linear-gradient(135deg, #4a90e2 0%, #7bb3f0 100%); /* blue gradient */
             padding: 60px 20px;
             text-align: center;
             color: white;
         }
  
+        /* heading inside hero section */
         .hero-title {
             font-size: 48px;
             font-weight: 300;
@@ -108,19 +110,21 @@
             letter-spacing: 1px;
         }
  
-        /* Cards Container */
+        /* ---------------- CARDS SECTION ---------------- */
         .cards-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
             gap: 20px;
 
+            /* background for whole card section */
             background: url("oceanBackground.jpg") no-repeat center center;
             background-size: cover;
             border-radius: 8px;
         }
  
+        /* each card */
         .card {
             background-color: white;
             border-radius: 8px;
@@ -129,21 +133,32 @@
             transition: transform 0.3s ease;
         }
  
+        /* hover effect */
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px); /* lift up on hover */
         }
  
+        /* image container */
         .card-image {
             width: 100%;
             height: 150px;
-            background-size: cover;
-            background-position: center;
+            overflow: hidden; /* ensure image stays inside */
+        }
+
+        /* make image cover the box */
+        .card-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* crop without distortion */
         }
  
+        /* card text content */
         .card-content {
             padding: 20px;
         }
  
+        /* card title */
         .card-title {
             font-size: 16px;
             font-weight: bold;
@@ -152,30 +167,20 @@
             line-height: 1.3;
         }
  
+        /* description text */
         .card-description {
             font-size: 12px;
             color: #666;
             line-height: 1.4;
         }
  
-        .card-image{
-            height: 150px;
-            overflow: hidden;
-        }
-
-        .card-image img{
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
- 
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- ---------------- HEADER ---------------- -->
     <header class="header">
         <div class="nav-container">
+            <!-- Left: Home + Nav links -->
             <div class="nav-left">
                 <div class="home-icon">🏠</div>
                 <ul class="nav-links">
@@ -186,6 +191,7 @@
                     <li>Help</li>
                 </ul>
             </div>
+            <!-- Right: Search, Login, Logo -->
             <div class="nav-right">
                 <div class="search-icon">🔍</div>
                 <button class="login-btn">🔒 LOGIN</button>
@@ -196,12 +202,13 @@
         </div>
     </header>
  
-    <!-- Hero Section -->
+    <!-- ---------------- HERO SECTION ---------------- -->
     <section class="hero-section">
         <h1 class="hero-title">Welcome to Standard Chartered</h1>
        
-        <!-- Cards -->
+        <!-- ---------------- CARDS SECTION ---------------- -->
         <div class="cards-container">
+            <!-- Card 1 -->
             <div class="card card1">
                 <div class="card-image">
                     <img src="pic1.png" alt="Wildlife">
@@ -212,6 +219,7 @@
                 </div>
             </div>
  
+            <!-- Card 2 -->
             <div class="card card2">
                 <div class="card-image">
                     <img src="pic2.png" alt="Invest">
@@ -222,6 +230,7 @@
                 </div>
             </div>
  
+            <!-- Card 3 -->
             <div class="card card3">
                 <div class="card-image">
                     <img src="pic3.png" alt="Explore the world">
@@ -232,6 +241,7 @@
                 </div>
             </div>
  
+            <!-- Card 4 -->
             <div class="card card4">
                 <div class="card-image">
                     <img src="pic4.png" alt="SC edge app">
@@ -242,9 +252,10 @@
                 </div>
             </div>
  
+            <!-- Card 5 -->
             <div class="card card5">
                 <div class="card-image">
-                    <img src="pic5.png" alt="Wildlife">
+                    <img src="pic5.png" alt="Cashback">
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Get 5% cashback at supermarket</h3>
